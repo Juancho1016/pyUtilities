@@ -1,2 +1,2 @@
 # pyUtilities
-Scripts utilities written in python language
+Scripts utilities written in python language.
