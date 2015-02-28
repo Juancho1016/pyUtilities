@@ -1,0 +1,42 @@
+{
+    "Name": "ZBP-Build for ARMv7",
+    "Type": "Configuration",
+    "Architecture": "armv7",
+    "Depends": "zbp-build.json",
+    "pre-compile": {
+        "qmake": "/usr/local/Trolltech/QT-Embedded-4.8.6-armhf/bin/qmake",
+        "qmake-opt": "CONFIG+=release -recursive",
+        "execute": [
+            "qmake + qmake-opt",
+            "make-clean"
+        ]
+    },
+    "compile": {
+        "execute": "make"
+    },
+    "post-compile": {
+        "copy-files": [
+            {
+                "origin": "ROOT/bins/release/ARCH/zbp.bin",
+                "dest": [
+                    "ROOT_PKG/",
+                    "TAR_FOLDER/ARCH/DISTRO/"
+                ]
+            },
+            {
+                "origin": "ROOT/libs/Mapping.json",
+                "dest": [
+                    "ROOT_PKG/",
+                    "TAR_FOLDER/ARCH/DISTRO/"
+                ]
+            }
+        ],
+        "execute": {
+            "script": "copy-files",
+            "params": "copy-files-dictionary"
+        }
+    },
+    "pre-pack": {},
+    "pack": {},
+    "post-pack": {}
+}

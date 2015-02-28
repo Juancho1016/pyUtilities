@@ -1,2 +1,9 @@
-"ignore python compile files
+#ignore python compile files
 *.pyc
+#ignore temporal files
+*~
+#ignore eclipse configuration files
+.project
+.pydevproject
+#ignore loger files
+*.log
